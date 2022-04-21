@@ -1,0 +1,24 @@
+{
+  "name": "individual-project-property-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efte01/Individual-Project-Property-Analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efte01/Individual-Project-Property-Analysis/issues"
+  },
+  "homepage": "https://github.com/efte01/Individual-Project-Property-Analysis#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3"
+  }
+}
