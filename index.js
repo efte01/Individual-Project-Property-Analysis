@@ -7,7 +7,8 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 
-const names_array = []
+
+const names = []
 const links = []
 
 const url ='https://www.thegazette.co.uk/wills-and-probate/notice/data.htm?text=&location-postcode-1=&location-distance-1=1&location-local-authority-1=&numberOfLocationSearches=1&start-date-of-death=&end-date-of-death=&start-publish-date=&end-publish-date=&start-claim-expiry-date=&end-claim-expiry-date=&edition=&london-issue=&edinburgh-issue=&belfast-issue=&sort-by=&results-page-size=10&results-page=1';
@@ -28,7 +29,7 @@ app.get('/results',(req,res)=>{
                 let executor_name;
                 let executor_address;
 
-                names_array.push({
+                names.push({
                     name,
                     address,
                     publication_date,
@@ -65,8 +66,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[0].executor_name = executor_name
-            names_array[0].executor_address = executor_address
+            names[0].executor_name = executor_name
+            names[0].executor_address = executor_address
             return axios.get(links[1])
         }) //1
         .then(response => {
@@ -93,8 +94,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[1].executor_name = executor_name
-            names_array[1].executor_address = executor_address
+            names[1].executor_name = executor_name
+            names[1].executor_address = executor_address
             return axios.get(links[2])
         }) //2
         .then(response => {
@@ -121,8 +122,9 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[2].executor_name = executor_name
-            names_array[2].executor_address = executor_address
+            names[2].executor_name = executor_name
+            names[2].executor_address = executor_address
+
             return axios.get(links[3])
         }) //3
         .then(response => {
@@ -149,8 +151,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[3].executor_name = executor_name
-            names_array[3].executor_address = executor_address
+            names[3].executor_name = executor_name
+            names[3].executor_address = executor_address
             return axios.get(links[4])
         }) //4
         .then(response => {
@@ -177,8 +179,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[4].executor_name = executor_name
-            names_array[4].executor_address = executor_address
+            names[4].executor_name = executor_name
+            names[4].executor_address = executor_address
             return axios.get(links[5])
         }) //5
         .then(response => {
@@ -205,8 +207,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[5].executor_name = executor_name
-            names_array[5].executor_address = executor_address
+            names[5].executor_name = executor_name
+            names[5].executor_address = executor_address
             return axios.get(links[6])
         }) //6
         .then(response => {
@@ -233,8 +235,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[6].executor_name = executor_name
-            names_array[6].executor_address = executor_address
+            names[6].executor_name = executor_name
+            names[6].executor_address = executor_address
             return axios.get(links[7])
         }) //7
         .then(response => {
@@ -261,8 +263,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[7].executor_name = executor_name
-            names_array[7].executor_address = executor_address
+            names[7].executor_name = executor_name
+            names[7].executor_address = executor_address
             return axios.get(links[8])
         }) //8
         .then(response => {
@@ -289,8 +291,8 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[8].executor_name = executor_name
-            names_array[8].executor_address = executor_address
+            names[8].executor_name = executor_name
+            names[8].executor_address = executor_address
             return axios.get(links[9])
         }) //9
         .then(response => {
@@ -317,18 +319,14 @@ app.get('/results',(req,res)=>{
                 executor_address = address1 + " " + address2 + " " + address3 + " " + address4
 
             })
-            names_array[9].executor_name = executor_name
-            names_array[9].executor_address = executor_address
-
-            res.json(names_array)
-
+            names[9].executor_name = executor_name
+            names[9].executor_address = executor_address
+            // console.log(names[9])
+            res.json(names)
             return axios.get(links[10])
         }) //10
         .catch((err) =>{
-
         })
 })
-
-
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))
