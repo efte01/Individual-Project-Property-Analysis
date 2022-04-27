@@ -321,12 +321,13 @@ app.get('/results',(req,res)=>{
             })
             names[9].executor_name = executor_name
             names[9].executor_address = executor_address
-            // console.log(names[9])
             res.json(names)
             return axios.get(links[10])
         }) //10
         .catch((err) =>{
         })
 })
+
+
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))/*Before HTML*/

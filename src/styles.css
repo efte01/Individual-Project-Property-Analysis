@@ -1,8 +1,12 @@
 body {
     max-width: 1080px;
     margin: auto;
-}
 
+    /*background-image:url('../src/wallpaper_one.jpg');*/
+    /*background-attachment:fixed;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+}
 #header{
     height: 50px;
     display: flex;
