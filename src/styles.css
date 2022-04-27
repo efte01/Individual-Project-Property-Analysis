@@ -1,0 +1,49 @@
+body {
+    max-width: 1080px;
+    margin: auto;
+}
+
+#header{
+    height: 50px;
+    display: flex;
+    border: 1px black;
+    border: solid;
+}
+
+#logo a{
+    letter-spacing: 0.1em;
+    font: 12px arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+
+    vertical-align: middle;
+    padding: 0 26px 0 26px;
+    height: 50px;
+}
+
+#menu{
+    height: 50px;
+    margin: 0 0 0 auto;
+}
+
+#menu li{
+    display: inline-block;
+}
+
+#menu li a {
+    letter-spacing: 0.1em;
+    font: 12px arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+    color: black;
+
+    vertical-align: middle;
+    padding: 0 20px 0 20px;
+    height: 50px;
+}
