@@ -7,7 +7,6 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 
-
 const names = []
 const links = []
 
@@ -19,26 +18,46 @@ app.get('/results',(req,res)=>{
             const html = response.data
             const $ = cheerio.load(html)
 
+            let num = 0
+
+            let name = null
+            let address = null
+            let publication_date = null
+            let deadline_date = null
+            let link = null
+            let executor_name = null
+            let executor_address = null
+
             $('.feed-item').each(function (){
-                let name = $(this).find('h3').text()
-                let address = $(this).find('div[class=content]').find('dd:first').text()
-                const publication_date = $(this).find('dl[class="metadata publication-date"]').find('time').text()
-                const deadline_date = $(this).find('div[class=content]').find('dd:last').find('time').text()
-                const link = "https://www.thegazette.co.uk" + $(this).find('a[class="btn btn-full-notice"]').attr('href') + "/data.html?view=linked-data"
+                name = $(this).find('h3').text()
+                address = $(this).find('div[class=content]').find('dd:first').text()
+                publication_date = $(this).find('dl[class="metadata publication-date"]').find('time').text()
+                deadline_date = $(this).find('div[class=content]').find('dd:last').find('time').text()
+                link = "https://www.thegazette.co.uk" + $(this).find('a[class="btn btn-full-notice"]').attr('href') + "/data.html?view=linked-data"
 
-                let executor_name;
-                let executor_address;
+                if (names[num] == null) {
+                    names.push({
+                        name,
+                        address,
+                        publication_date,
+                        deadline_date,
+                        link,
+                        executor_name,
+                        executor_address
+                    })
+                    links.push(link)
+                }else{
+                    names[num].name = name
+                    names[num].address = address
+                    names[num].publication_date = publication_date
+                    names[num].deadline_date = deadline_date
+                    names[num].link = link
+                    names[num].executor_name = executor_name
+                    names[num].executor_address = executor_address
 
-                names.push({
-                    name,
-                    address,
-                    publication_date,
-                    deadline_date,
-                    link,
-                    executor_name,
-                    executor_address
-                })
-                links.push(link)
+                    links[num] = link
+                }
+                num = num + 1
             })
             return axios.get(links[0])
         }) // get all names
@@ -321,13 +340,13 @@ app.get('/results',(req,res)=>{
             })
             names[9].executor_name = executor_name
             names[9].executor_address = executor_address
+            // console.log(names[9])
             res.json(names)
             return axios.get(links[10])
         }) //10
         .catch((err) =>{
+            console.log(err)
         })
 })
 
-
-
-app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))/*Before HTML*/
+app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))
