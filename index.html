@@ -21,22 +21,18 @@
             </div>
             <ul id="menu">
                 <li class="selected"><a href="index.html">Home</a></li>
-<!--                <li><a href="analysis.html">Analysis</a></li>-->
-<!--                <li><a href="auctions.html">Auctions</a></li>-->
-<!--                <li><a href="sourcing.html">Sourcing</a></li>-->
-<!--                <li><a href="login.html">Login</a></li>-->
+                <!--                <li><a href="analysis.html">Analysis</a></li>-->
+                <!--                <li><a href="auctions.html">Auctions</a></li>-->
+                <!--                <li><a href="sourcing.html">Sourcing</a></li>-->
+                <!--                <li><a href="login.html">Login</a></li>-->
             </ul>
         </div>
 
-        <form id="filter">
-            <input type="text" name="postcode" id="postcode"><br>
-            <input type="text" name="radius" id="radius"><br><br>
-            <input type="button" onclick="form_input()" value="Submit">
+        <form>
+            <input type="text" class="postcode_class" id="postcode_id" placeholder="Enter Postcode"><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <script src="src/app.js"></script>
-        <script>
-            read_url_data('/results', document);
-        </script>
+        <script src="src/app.js"></script> <!--Call App.js File-->
     </body>
 </html>
