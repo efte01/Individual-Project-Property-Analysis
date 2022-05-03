@@ -3,21 +3,39 @@
     <head>
         <meta charset="utf-8">
         <title>Property Analysis</title>
-        <link rel="stylesheet" href="src/styles.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
     </head>
-    <body>
-        <div id=header>
-            <div id=logo>
-                <a>Property Analysis</a>
+    <body class="bg-image" style="background: #212121">
+
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Property Analysis</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Analysis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Auctions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Sourcing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <ul id="menu">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="analysis.html">Analysis</a></li>
-                <li><a href="auctions.html">Auctions</a></li>
-                <li class="selected"><a href="index.html">Sourcing</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
+        </nav>
 
         <form>
             <label for="postcode_id"></label><input type="text" class="postcode_class" id="postcode_id" placeholder="Enter Postcode"><br>
