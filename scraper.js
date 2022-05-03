@@ -1,14 +1,9 @@
-const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const axios = require('axios')
-
-const url ='https://www.thegazette.co.uk/wills-and-probate/notice/data.htm?text=&location-postcode-1=&location-distance-1=1&location-local-authority-1=&numberOfLocationSearches=1&start-date-of-death=&end-date-of-death=&start-publish-date=&end-publish-date=&start-claim-expiry-date=&end-claim-expiry-date=&edition=&london-issue=&edinburgh-issue=&belfast-issue=&sort-by=&results-page-size=10&results-page=1';
-
 const names = []
 const links = []
 
 function searchDead(searchTerm) {
-
     const temp_postcode = searchTerm.replace(/ /g, '+');
     const temp_url = 'https://www.thegazette.co.uk/wills-and-probate/notice/data.htm?text=&location-postcode-1=' + temp_postcode + '&location-distance-1=1&location-local-authority-1=&numberOfLocationSearches=1&start-date-of-death=&end-date-of-death=&start-publish-date=&end-publish-date=&start-claim-expiry-date=&end-claim-expiry-date=&edition=&london-issue=&edinburgh-issue=&belfast-issue=&sort-by=&results-page-size=10&results-page=1';
 
@@ -341,6 +336,7 @@ function searchDead(searchTerm) {
             names[9].executor_address = executor_address
             // console.log(names[9])
             // res.json()
+            console.log(names.length)
             return names
         }) //10
         .catch((err) =>{
