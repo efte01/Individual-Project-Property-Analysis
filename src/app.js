@@ -6,7 +6,8 @@ form.addEventListener('submit', formSubmitted); // Listener to the submit button
 
 // Create a table, with a 'thead', and blank 'tbody'. the loop will then create a 'tr' and then all the 'th' + 'td' attributes
 var table_class = document.createElement("table")
-table_class.className = "table table-hover";
+table_class.className = "table table-active";
+table_class.style = "color:white; padding:0px 100px 50px 100px"
 table_class.id = "table_id"
 table_class.style.display = "none"
 document.getElementsByTagName('body')[0].appendChild(table_class);

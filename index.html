@@ -4,16 +4,12 @@
         <meta charset="utf-8">
         <title>Property Analysis</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-
     </head>
-    <body class="bg-image" style="background: #1a1a1a">
+    <body class="fixed-wrap" style="background-image: url('src/wallpaper.png');background-repeat: no-repeat; background-attachment: fixed;min-width: 100%"><!--https://wallpaperaccess.com/full/209712.jpg-->
 
-        <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <nav class="navbar navbar-expand navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Property Analysis</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand" href="#" style="padding-left: 50px">Property Analysis</a>
 
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav ml-auto">
@@ -37,29 +33,12 @@
             </div>
         </nav>
 
-        <form>
-            <label for="postcode_id"></label><input type="text" class="postcode_class" id="postcode_id" placeholder="Enter Postcode"><br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-<!--        <table class="table table-hover">-->
-<!--            <thead>-->
-<!--                <tr  class="table-active">-->
-<!--                    <th scope="col">Type</th>-->
-<!--                    <th scope="col">Column heading</th>-->
-<!--                    <th scope="col">Column heading</th>-->
-<!--                    <th scope="col">Column heading</th>-->
-<!--                </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--                <tr>-->
-<!--                    <th scope="row">Default</th>-->
-<!--                    <td>Column content</td>-->
-<!--                    <td>Column content</td>-->
-<!--                    <td>Column content</td>-->
-<!--                </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <div class="d-flex justify-content-center" style="height: 300px" >
+            <form class="text-center" style="padding-top: 70px">
+                <label for="postcode_id"></label><input type="text" class="form-control" id="postcode_id" placeholder="Enter Postcode"><br>
+                <button type="submit" class="btn btn-outline-light">Submit</button>
+            </form>
+        </div>
 
         <script src="src/app.js"></script> <!--Call App.js File-->
     </body>
