@@ -9,9 +9,9 @@ app.get('/:result',(req,res)=>{
     const temp_postcode = req.params.result.replace(/ /g, '+');
 
     scraper
-        .searchDead(temp_postcode)
-        .then(names => {
-            res.json(names)
+        .searchweb(temp_postcode)
+        .then(array => {
+            res.json(array)
         })
 })/*Reads from URL, then publishes to http://localhost:8000/results*/
 
