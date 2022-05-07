@@ -57,3 +57,8 @@
 /*.selected{*/
 /*    background-color: crimson;*/
 /*}*/
+
+.table {
+    margin:0 auto;
+    width: 80%;
+}
