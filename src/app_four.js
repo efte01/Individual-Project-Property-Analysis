@@ -4,13 +4,20 @@ const BASE_URL = "http://localhost:8000/" // Base url for server, which we add o
 
 form.addEventListener('submit', formSubmitted); // Listener to the submit button, anytime its clicked run function
 
+
+var div = document.createElement("div")
+div.id = "container"
+div.className ="d-flex justify-content-center"
+document.getElementsByTagName('body')[0].appendChild(div);
+
+
 // Create a table, with a 'thead', and blank 'tbody'. the loop will then create a 'tr' and then all the 'th' + 'td' attributes
 var table_class = document.createElement("table")
 table_class.className = "table table-active flex justify-content-center";
-table_class.style = "color:white; padding:0px 100px 50px 100px; width:1000px"
+table_class.style = "width:auto; color:white;"
 table_class.id = "table_id"
 table_class.style.display = "none"
-document.getElementsByTagName('body')[0].appendChild(table_class);
+document.getElementsByTagName('div')[3].appendChild(table_class);
 const thead_html = `<thead><tr class="table-active"><th scope="col">ADDRESS</th><th scope="col">ADDRESS TYPE</th><th scope="col">PRICE SOLD</th><th scope="col">DATE SOLD</th></tr></thead>`
 const table_class_id = document.querySelector('#table_id')
 table_class_id.insertAdjacentHTML("beforeend",thead_html)

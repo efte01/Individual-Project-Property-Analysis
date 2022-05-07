@@ -3,6 +3,7 @@ const axios = require('axios')
 const names = []
 const links = []
 const sold_names = []
+const auctions = []
 
 function searchweb(searchTerm) {
     const front_string = searchTerm.slice(0, -1)
@@ -12,7 +13,65 @@ function searchweb(searchTerm) {
 
     }
     else if (end_string === "2") {
+        console.log("running 2nd if")
 
+        const url = 'https://auction-link.org.uk/london-property-auctions/'
+
+        return axios.get(url)
+            .then(response => {
+                const html = response.data
+                const $ = cheerio.load(html)
+
+                let auction_name = null
+                let auction_date_one = null
+                let auction_date_two = null
+                let auction_date_three = null
+
+                while (auctions.length > 0) {
+                    auctions.pop()
+                }
+
+                let num = 0
+                $('.column-1').each(function (){
+                    auctions.push({
+                        auction_name,
+                        auction_date_one,
+                        auction_date_two,
+                        auction_date_three,
+
+                    })
+                    const data = $(this).text()
+                    auctions[num].auction_name = data
+                    num = num+1
+                })
+
+                num = 0
+                $('.column-2').each(function (){
+                    const data = $(this).text()
+                    auctions[num].auction_date_one = data
+                    num = num+1
+                })
+
+                num = 0
+                $('.column-3').each(function (){
+                    const data = $(this).text()
+                    auctions[num].auction_date_two = data
+                    num = num+1
+                })
+
+                num = 0
+                $('.column-4').each(function (){
+                    const data = $(this).text()
+                    auctions[num].auction_date_three = data
+                    num = num+1
+                })
+
+                // auctions.shift() //Remove first element in array, which is currently the header
+                return auctions
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
     }
     else if (end_string === "3") {
         console.log("running 3rd if")
@@ -366,8 +425,6 @@ function searchweb(searchTerm) {
                 const html = response.data
                 const $ = cheerio.load(html)
 
-                let num = 0
-
                 let address = null
                 let address_type = null
                 let address_price = null
@@ -376,6 +433,7 @@ function searchweb(searchTerm) {
                 while (sold_names.length > 0) {
                     sold_names.pop()
                 }
+
                 $('.panel').each(function (){
 
                     address = $(this).find("h2").text()
@@ -383,23 +441,15 @@ function searchweb(searchTerm) {
                     address_price = $(this).find('ul[class=transactions]').find('li:first').find('span[class=price]').text()
                     address_date =  $(this).find('ul[class=transactions]').find('li:first').find('span[class=date]').text()
 
-                    if (sold_names[num] == null) {
-                        sold_names.push({
-                            address,
-                            address_type,
-                            address_price,
-                            address_date,
+                    sold_names.push({
+                        address,
+                        address_type,
+                        address_price,
+                        address_date,
 
-                        })
-                    }else{
-                        sold_names[num].address = address
-                        sold_names[num].address_type = address_type
-                        sold_names[num].address_price = address_price
-                        sold_names[num].address_date = address_date
-                    }
-                    num = num + 1
+                    })
                 })
-                console.log(sold_names.length)
+
                 return sold_names
             })
             .catch((err) =>{

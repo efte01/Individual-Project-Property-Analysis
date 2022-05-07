@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Property Analysis</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    </head>
+    <body class="fixed-wrap" style="background-image: url('src/wallpaper.png');background-repeat: no-repeat; background-attachment: fixed;min-width: 100%"><!--https://wallpaperaccess.com/full/209712.jpg-->
+        <nav class="navbar navbar-expand navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="padding-left: 50px">Property Analysis</a>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="analysis.html">Analysis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="auctions.html">Auctions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Sourcing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sold_properties.html">Sold Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="d-flex justify-content-center" style="width: auto">
+            <div style="width: 150px">
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Deposit</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Mortgage Fees</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Survey</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Conveyancing</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Stamp Duty</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Refurbishment</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Void Costs</label>
+            </div>
+            <div >
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="deposit_input" value="50000">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="mortgage_fees_input" value="2000">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="survey_input" value="500">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="converyancing_input" value="800">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="stamp_duty_input" value="7500">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="refurbishment_input" value="1500">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="void_costs_input" value="400">
+                </div>
+            </div>
+            <div style="width: 200px; margin-left: 150px">
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Mortgage Repayments</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Building Insurance</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Contents Insurance</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Maintenance Costs</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Void Costs</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Agent Fees</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Ground Rent</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Service Charge</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Gas Safety Certificate</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Other</label>
+            </div>
+            <div >
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="mortgage_repayments_input" value="2400">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="building_insurance_input" value="240">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="contents_insurance_input" value="1230">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="maintenance_costs_input" value="500">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="void_costs_input_2" value="800">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="agent_fees_input" value="1050">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="ground_rent_input" value="0">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="service_charge_input" value="0">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="gas_safety_certificate_input" value="50">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="other_input" value="200">
+                </div>
+            </div>
+            <div style="width: 150px; margin-left: 150px">
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Monthly Rent</label>
+                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Annual Rent</label>
+            </div>
+            <div >
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="monthly_rent_input" value="50000">
+                </div>
+                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
+                    <span class="input-group-text">£</span>
+                    <input type="text" class="form-control" id="annual_rent_input" value="2000">
+                </div>
+            </div>
+        </div>
+
+
+        <script src="src/app_one.js"></script> <!--Call App.js File-->
+        <script>
+            formSubmitted()
+        </script>
+    </body>
+</html>
