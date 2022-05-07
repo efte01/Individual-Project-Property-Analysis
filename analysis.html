@@ -5,7 +5,7 @@
         <title>Property Analysis</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     </head>
-    <body class="fixed-wrap" style="background-image: url('src/wallpaper.png');background-repeat: no-repeat; background-attachment: fixed;min-width: 100%"><!--https://wallpaperaccess.com/full/209712.jpg-->
+    <body class="fixed-wrap" style="background-image: url('src/wallpaper.png');background-repeat: no-repeat; background-attachment: fixed;min-width: 100%" id="body"><!--https://wallpaperaccess.com/full/209712.jpg-->
         <nav class="navbar navbar-expand navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#" style="padding-left: 50px">Property Analysis</a>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
-                    <input type="text" class="form-control" id="converyancing_input" value="800">
+                    <input type="text" class="form-control" id="conveyancing_input" value="800">
                 </div>
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
@@ -80,7 +80,6 @@
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Building Insurance</label>
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Contents Insurance</label>
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Maintenance Costs</label>
-                <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Void Costs</label>
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Agent Fees</label>
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Ground Rent</label>
                 <label class="form-label" style="color: white; height: 34px; margin: 35px 20px 0 0">Service Charge</label>
@@ -103,10 +102,6 @@
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
                     <input type="text" class="form-control" id="maintenance_costs_input" value="500">
-                </div>
-                <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
-                    <span class="input-group-text">£</span>
-                    <input type="text" class="form-control" id="void_costs_input_2" value="800">
                 </div>
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
@@ -136,19 +131,43 @@
             <div >
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
-                    <input type="text" class="form-control" id="monthly_rent_input" value="50000">
+                    <input type="text" class="form-control" id="monthly_rent_input" value="800">
                 </div>
                 <div class="input-group" style="margin: 22px 20px 0 0; width: 200px">
                     <span class="input-group-text">£</span>
-                    <input type="text" class="form-control" id="annual_rent_input" value="2000">
+                    <input type="text" class="form-control" id="annual_rent_input" value="9600">
                 </div>
             </div>
         </div>
 
 
         <script src="src/app_one.js"></script> <!--Call App.js File-->
-        <script>
-            formSubmitted()
-        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    <script>
+        var xValues = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
+        var yValues = [-50000,-40000,-30000,-20000,-10000, 0,10000,20000,30000,40000,50000];
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    yAxes: [{ticks: {min: -50000, max:50000}}],
+                }
+            }
+        });
+    </script>
     </body>
 </html>
