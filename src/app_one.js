@@ -175,7 +175,7 @@ function updateLineColors(chart) {
 
 var div = document.createElement("div")
 div.id = "container"
-div.className ="d-flex justify-content-center"
+div.className ="d-flex justify-content-left"
 document.getElementsByTagName('body')[0].appendChild(div);
 
 // Create a table, with a 'thead', and blank 'tbody'. the loop will then create a 'tr' and then all the 'th' + 'td' attributes
