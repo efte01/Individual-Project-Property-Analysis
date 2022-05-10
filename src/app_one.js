@@ -76,8 +76,9 @@ var html_chart = new Chart(ctx, {
     options: {
         legend: {display: false},
         scales: {
-            yAxes: [{ticks: {min: -62700, max:62700}}],
-        },
+            yAxes: [
+                {ticks: {min: -62700, max:62700}}],
+        }
     }
 });
 
@@ -91,6 +92,7 @@ function listen_for_change(event) {
     updateRange(html_chart)
     updateLineColors(html_chart)
     removeData(html_chart)
+    update_table()
 }
 
 function total_initial_cost() {
@@ -169,4 +171,89 @@ function updateLineColors(chart) {
     chart.data.datasets[2].borderColor = "rgba(255,0,0,0.2)"
     chart.data.datasets[2].pointBackgroundColor= "rgba(255,255,255,0.2)"
     chart.update();
+}
+
+var div = document.createElement("div")
+div.id = "container"
+div.className ="d-flex justify-content-center"
+document.getElementsByTagName('body')[0].appendChild(div);
+
+// Create a table, with a 'thead', and blank 'tbody'. the loop will then create a 'tr' and then all the 'th' + 'td' attributes
+var table_class = document.createElement("table")
+table_class.className = "table table-active flex justify-content-center";
+table_class.style = "color:white; margin: 100px 0 100px 0; width: auto;"
+table_class.id = "table_id"
+table_class.style.display = "block"
+document.querySelector('#container').appendChild(table_class);
+
+
+const thead_html = `<thead><tr class="table-active"><th scope="col">DEPOSIT</th><th scope="col">MORTGAGE FEES</th><th scope="col">SURVEY</th><th scope="col">CONVEYANCING</th>
+    <th scope="col">STAMP DUTY</th><th scope="col">REFURBISHMENT</th><th scope="col">VOID COSTS</th><th scope="col">MORTGAGE REPAYMENTS</th><th scope="col">BUILDING INSURANCE</th>
+    <th scope="col">CONTENTS INSURANCE</th><th scope="col">MAINTENANCE COSTS</th><th scope="col">AGENT FEES</th><th scope="col">GROUND RENT</th><th scope="col">SERVICE CHARGE</th>
+    <th scope="col">GAS SAFETY CERTIFICATE</th><th scope="col">OTHER</th><th scope="col">MONTHLY RENT</th><th scope="col">ANNUAL RENT</th></tr></thead>`
+const table_class_id = document.querySelector('#table_id')
+table_class_id.insertAdjacentHTML("beforeend",thead_html)
+
+var tbody_class = document.createElement("tbody")
+tbody_class.id = "names";
+document.getElementsByTagName('table')[0].appendChild(tbody_class);
+const names_id = document.querySelector('#names')
+
+create_blank_table()
+
+function create_blank_table() {
+    const title = `
+        <thead>
+            <tr class="table-active">
+                <th scope="col">` + deposit_input.value + `</th>
+                <th scope="col">` + mortgage_fees_input.value + `</th>
+                <th scope="col">` + survey_input.value + `</th>
+                <th scope="col">` + conveyancing_input.value + `</th>
+                <th scope="col">` + stamp_duty_input.value + `</th>
+                <th scope="col">` + refurbishment_input.value + `</th>
+                <th scope="col">` + void_costs_input.value + `</th>
+                <th scope="col">` + mortgage_repayments_input.value + `</th>
+                <th scope="col">` + building_insurance_input.value + `</th>
+                <th scope="col">` + contents_insurance_input.value + `</th>
+                <th scope="col">` + maintenance_costs_input.value + `</th>
+                <th scope="col">` + agent_fees_input.value + `</th>
+                <th scope="col">` + ground_rent_input.value + `</th>
+                <th scope="col">` + service_charge_input.value + `</th>
+                <th scope="col">` + gas_safety_certificate_input.value + `</th>
+                <th scope="col">` + other_input.value + `</th>
+                <th scope="col">` + monthly_rent_input.value + `</th>
+                <th scope="col">` + annual_rent_input.value + `</th>
+            </tr>
+        </thead>`
+    names_id.insertAdjacentHTML("beforeend",title)
+    names_id.insertAdjacentHTML("beforeend",title)
+    names_id.insertAdjacentHTML("beforeend",title)
+}
+
+function update_table(){
+    const title = `
+        <thead>
+            <tr class="table-active">
+                <th scope="col">` + deposit_input.value + `</th>
+                <th scope="col">` + mortgage_fees_input.value + `</th>
+                <th scope="col">` + survey_input.value + `</th>
+                <th scope="col">` + conveyancing_input.value + `</th>
+                <th scope="col">` + stamp_duty_input.value + `</th>
+                <th scope="col">` + refurbishment_input.value + `</th>
+                <th scope="col">` + void_costs_input.value + `</th>
+                <th scope="col">` + mortgage_repayments_input.value + `</th>
+                <th scope="col">` + building_insurance_input.value + `</th>
+                <th scope="col">` + contents_insurance_input.value + `</th>
+                <th scope="col">` + maintenance_costs_input.value + `</th>
+                <th scope="col">` + agent_fees_input.value + `</th>
+                <th scope="col">` + ground_rent_input.value + `</th>
+                <th scope="col">` + service_charge_input.value + `</th>
+                <th scope="col">` + gas_safety_certificate_input.value + `</th>
+                <th scope="col">` + other_input.value + `</th>
+                <th scope="col">` + monthly_rent_input.value + `</th>
+                <th scope="col">` + annual_rent_input.value + `</th>
+            </tr>
+        </thead>`
+    names_id.insertAdjacentHTML("afterbegin",title)
+    names_id.removeChild(names_id.lastElementChild);
 }

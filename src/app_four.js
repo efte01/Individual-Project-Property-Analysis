@@ -10,7 +10,6 @@ div.id = "container"
 div.className ="d-flex justify-content-center"
 document.getElementsByTagName('body')[0].appendChild(div);
 
-
 // Create a table, with a 'thead', and blank 'tbody'. the loop will then create a 'tr' and then all the 'th' + 'td' attributes
 var table_class = document.createElement("table")
 table_class.className = "table table-active flex justify-content-center";
