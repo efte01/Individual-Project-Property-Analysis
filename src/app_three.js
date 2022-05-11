@@ -19,6 +19,34 @@ tbody_class.id = "names";
 document.getElementsByTagName('table')[0].appendChild(tbody_class);
 const names_id = document.querySelector('#names')
 
+var email_text = `
+    <div class="d-flex justify-content-center" style="width: auto; margin: 10px 0 10px 0">
+        <form class="text-center">
+            <p style="font-size: 12px; color: white; width: 800px; text-align:left;" id="email_text">
+                Dear whom it may concern,<br><br>
+                
+                I have been notified that; you are the Administrating Executor of the deceased estate for names in subject.<br><br>
+
+                In regards to the properties, of the deceased. I wanted to check if the properties are up for sale. As a Property investor I have personal interest within the area in regards to properties and was notified that these may be potentially available.<br>          
+                If the properties named above are up for sale, I'd appreciate it if we could have a quick chat before the properties are listed through Agents or Auction.<br><br><br>
+                
+                
+                Kind Regards,
+            </p>
+            <button class="btn btn-outline-light" id="copy_button" >Copy</button>
+        </form>
+    </div>`
+document.getElementsByTagName('body')[0].insertAdjacentHTML("beforeend",email_text)
+
+const copy_button = document.getElementById('copy_button')
+copy_button.addEventListener('click',function(event) {
+    navigator.clipboard.writeText(document.getElementsByTagName('p')[1].innerText).then(function() {
+        alert("Copied to clipboard");
+    }, function() {
+        alert("Try again");
+    });
+});
+
 function formSubmitted(event) {
     event.preventDefault()
 

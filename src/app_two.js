@@ -11,7 +11,7 @@ table_class.className = "table table-active";
 table_class.style = "width:auto; color:white;"
 table_class.id = "table_id"
 table_class.style.display = "none"
-document.getElementsByTagName('div')[2].appendChild(table_class);
+document.getElementsByTagName('div')[3].appendChild(table_class);
 var tbody_class = document.createElement("tbody")
 tbody_class.id = "names";
 document.getElementsByTagName('table')[0].appendChild(tbody_class);
