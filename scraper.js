@@ -407,9 +407,7 @@ function searchweb(searchTerm) {
     else if (end_string === "4") {
         console.log("running 4th if")
 
-        const new_frontstring = front_string.replaceAll('+', '-').toLowerCase()
-        const url = 'https://www.onthemarket.com/uk-house-prices/' + new_frontstring + '/prices/?postcode=' + front_string.toUpperCase() +'&search-type=prices&sold-prices-input='  + front_string.toUpperCase()
-        const url1 = 'https://www.onthemarket.com/uk-house-prices/n12-0pa/prices/?postcode=N12+0PA&search-type=prices&sold-prices-input=N12+0PA';
+        const url ='https://www.your-move.co.uk/home-worth/' + front_string.toUpperCase() + '/all-types/recently-sold'
 
         return axios.get(url)
             .then(response => {
@@ -425,30 +423,24 @@ function searchweb(searchTerm) {
                     sold_names.pop()
                 }
 
-                $('.panel').each(function (){
-
-                    address = $(this).find("h2").text()
-                    address_type = $(this).find('ul[class=transactions]').find('li:first').find('span[class=description]').text()
-                    address_price = $(this).find('ul[class=transactions]').find('li:first').find('span[class=price]').text()
-                    address_date =  $(this).find('ul[class=transactions]').find('li:first').find('span[class=date]').text()
+                $('.home-worth-item').each(function (){
+                    address = $(this).find('div[class=home-worth-item__address]').text()
+                    address_type = $(this).find('div[class=home-worth-item__details]').text()
+                    address_price = $(this).find('div[class=home-worth-item__price]').find('span:first').text()
+                    address_date =  $(this).find('div[class=home-worth-item__date]').find('span:first').text()
 
                     sold_names.push({
                         address,
                         address_type,
                         address_price,
                         address_date,
-
                     })
                 })
-
                 return sold_names
             })
             .catch((err) =>{
                 console.log(err)
             })
-    }
-    else {
-
     }
 }
 
