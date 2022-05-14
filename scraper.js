@@ -15,7 +15,7 @@ function searchweb(searchTerm) {
     else if (end_string === "2") {
         console.log("running 2nd if")
 
-        const url = 'https://auction-link.org.uk/london-property-auctions/'
+        const url = 'https://www.propertyauctionaction.co.uk/'
 
         return axios.get(url)
             .then(response => {
@@ -23,9 +23,8 @@ function searchweb(searchTerm) {
                 const $ = cheerio.load(html)
 
                 let auction_name = null
-                let auction_date_one = null
+                let auction_area = null
                 let auction_date_two = null
-                let auction_date_three = null
 
                 while (auctions.length > 0) {
                     auctions.pop()
@@ -35,9 +34,8 @@ function searchweb(searchTerm) {
                 $('.column-1').each(function (){
                     auctions.push({
                         auction_name,
-                        auction_date_one,
+                        auction_area,
                         auction_date_two,
-                        auction_date_three,
 
                     })
                     const data = $(this).text()
@@ -48,7 +46,7 @@ function searchweb(searchTerm) {
                 num = 0
                 $('.column-2').each(function (){
                     const data = $(this).text()
-                    auctions[num].auction_date_one = data
+                    auctions[num].auction_area = data
                     num = num+1
                 })
 
@@ -56,13 +54,6 @@ function searchweb(searchTerm) {
                 $('.column-3').each(function (){
                     const data = $(this).text()
                     auctions[num].auction_date_two = data
-                    num = num+1
-                })
-
-                num = 0
-                $('.column-4').each(function (){
-                    const data = $(this).text()
-                    auctions[num].auction_date_three = data
                     num = num+1
                 })
 

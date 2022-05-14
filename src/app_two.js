@@ -36,13 +36,13 @@ function showResults(results) {
 
     results.forEach(array => {
         if (array.auction_name !== "London Auctioneer Name") {
-            const title = `<tr><th scope="row">` + array.auction_name + `</th><td>` + array.auction_date_one + `</td><td>`
-                + array.auction_date_two + `</td><td>` + array.auction_date_three + `</td></tr>`
+            const title = `<tr><th scope="row">` + array.auction_name + `</th><td>` + array.auction_area + `</td><td>`
+                + array.auction_date_two + `</td></tr>`
             names_id.insertAdjacentHTML("beforeend",title)
         }else {
             const table_class_id = document.querySelector('#table_id')
-            const thead_html = `<thead><tr class="table-active"><th scope="col">AUCTIONEER</th><th scope="col">` + array.auction_date_one + `</th><th scope="col">`
-                + array.auction_date_two + `</th><th scope="col">` + array.auction_date_three + `</th></tr></thead>`
+            const thead_html = `<thead><tr class="table-active"><th scope="col">AUCTIONEER</th><th scope="col">` + array.auction_area + `</th><th scope="col">`
+                + array.auction_date_two + `</th></tr></thead>`
             table_class_id.insertAdjacentHTML("beforeend",thead_html)
         }
 
