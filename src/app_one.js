@@ -16,7 +16,6 @@ const service_charge_input = document.getElementById('service_charge_input')
 const gas_safety_certificate_input = document.getElementById('gas_safety_certificate_input')
 const other_input = document.getElementById('other_input')
 
-const monthly_rent_input = document.getElementById('monthly_rent_input')
 const annual_rent_input = document.getElementById('annual_rent_input')
 
 deposit_input.addEventListener('change', listen_for_change)
@@ -37,7 +36,6 @@ service_charge_input.addEventListener('change', listen_for_change)
 gas_safety_certificate_input.addEventListener('change', listen_for_change)
 other_input.addEventListener('change', listen_for_change)
 
-monthly_rent_input.addEventListener('change', listen_for_change)
 annual_rent_input.addEventListener('change', listen_for_change)
 
 // Create a Blank graph with default values
@@ -85,14 +83,46 @@ var html_chart = new Chart(ctx, {
 function listen_for_change(event) {
     event.preventDefault()
 
-    const var_one = create_results()
-    const var_two = create_data(var_one)
+    let var_input = document.getElementById(event.target.id);
 
-    addData(html_chart,var_two)
-    updateRange(html_chart)
-    updateLineColors(html_chart)
-    removeData(html_chart)
-    update_table()
+    const searchTerm = var_input.value;
+    const regex = /^[0-9]{1,10}$/
+
+    console.log(searchTerm.match(regex))
+
+    if (searchTerm.match(regex) !== null) {
+        const var_one = create_results()
+        const var_two = create_data(var_one)
+
+        addData(html_chart,var_two)
+        updateRange(html_chart)
+        updateLineColors(html_chart)
+        removeData(html_chart)
+        update_table()
+
+        var_input.className = "form-control";
+        deposit_input.className = "form-control";
+        mortgage_fees_input.className = "form-control";
+        survey_input.className = "form-control";
+        conveyancing_input.className = "form-control";
+        stamp_duty_input.className = "form-control";
+        refurbishment_input.className = "form-control";
+        void_costs_input.className = "form-control";
+        mortgage_repayments_input.className = "form-control";
+        building_insurance_input.className = "form-control";
+        contents_insurance_input.className = "form-control";
+        maintenance_costs_input.className = "form-control";
+        agent_fees_input.className = "form-control";
+        ground_rent_input.className = "form-control";
+        service_charge_input.className = "form-control";
+        gas_safety_certificate_input.className = "form-control";
+        other_input.className = "form-control";
+        annual_rent_input.className = "form-control";
+
+    }else {
+        var_input.className = "form-control is-invalid";
+        var_input.value = parseInt(var_input.title)
+    }
 }
 
 function total_initial_cost() {
@@ -190,7 +220,7 @@ document.querySelector('#container').appendChild(table_class);
 const thead_html = `<thead><tr class="table-active"><th scope="col">DEPOSIT</th><th scope="col">MORTGAGE FEES</th><th scope="col">SURVEY</th><th scope="col">CONVEYANCING</th>
     <th scope="col">STAMP DUTY</th><th scope="col">REFURBISHMENT</th><th scope="col">VOID COSTS</th><th scope="col">MORTGAGE REPAYMENTS</th><th scope="col">BUILDING INSURANCE</th>
     <th scope="col">CONTENTS INSURANCE</th><th scope="col">MAINTENANCE COSTS</th><th scope="col">AGENT FEES</th><th scope="col">GROUND RENT</th><th scope="col">SERVICE CHARGE</th>
-    <th scope="col">GAS SAFETY CERTIFICATE</th><th scope="col">OTHER</th><th scope="col">MONTHLY RENT</th><th scope="col">ANNUAL RENT</th></tr></thead>`
+    <th scope="col">GAS SAFETY CERTIFICATE</th><th scope="col">OTHER</th><th scope="col">ANNUAL RENT</th></tr></thead>`
 const table_class_id = document.querySelector('#table_id')
 table_class_id.insertAdjacentHTML("beforeend",thead_html)
 
@@ -221,7 +251,6 @@ function create_blank_table() {
                 <th scope="col">` + service_charge_input.value + `</th>
                 <th scope="col">` + gas_safety_certificate_input.value + `</th>
                 <th scope="col">` + other_input.value + `</th>
-                <th scope="col">` + monthly_rent_input.value + `</th>
                 <th scope="col">` + annual_rent_input.value + `</th>
             </tr>
         </thead>`
@@ -250,7 +279,6 @@ function update_table(){
                 <th scope="col">` + service_charge_input.value + `</th>
                 <th scope="col">` + gas_safety_certificate_input.value + `</th>
                 <th scope="col">` + other_input.value + `</th>
-                <th scope="col">` + monthly_rent_input.value + `</th>
                 <th scope="col">` + annual_rent_input.value + `</th>
             </tr>
         </thead>`
