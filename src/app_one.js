@@ -88,7 +88,6 @@ function listen_for_change(event) {
     const searchTerm = var_input.value;
     const regex = /^[0-9]{1,10}$/
 
-    console.log(searchTerm.match(regex))
 
     if (searchTerm.match(regex) !== null) {
         const var_one = create_results()

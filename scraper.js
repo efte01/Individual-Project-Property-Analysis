@@ -13,7 +13,7 @@ function searchweb(searchTerm) {
 
     }
     else if (end_string === "2") {
-        console.log("running 2nd if")
+
 
         const url = 'https://www.propertyauctionaction.co.uk/'
 
@@ -65,7 +65,6 @@ function searchweb(searchTerm) {
             })
     }
     else if (end_string === "3") {
-        console.log("running 3rd if")
 
         const temp_url = 'https://www.thegazette.co.uk/wills-and-probate/notice/data.htm?text=&location-postcode-1=' + front_string + '&location-distance-1=1&location-local-authority-1=&numberOfLocationSearches=1&start-date-of-death=&end-date-of-death=&start-publish-date=&end-publish-date=&start-claim-expiry-date=&end-claim-expiry-date=&edition=&london-issue=&edinburgh-issue=&belfast-issue=&sort-by=&results-page-size=10&results-page=1';
         return axios.get(temp_url)
@@ -397,7 +396,6 @@ function searchweb(searchTerm) {
                 names[9].executor_address = executor_address
                 // console.log(names[9])
                 // res.json()
-                console.log(names.length)
                 return names
             }) //10
             .catch((err) =>{
@@ -405,7 +403,6 @@ function searchweb(searchTerm) {
             })
     }
     else if (end_string === "4") {
-        console.log("running 4th if")
 
         const url ='https://www.your-move.co.uk/home-worth/' + front_string.toUpperCase() + '/all-types/recently-sold'
 
