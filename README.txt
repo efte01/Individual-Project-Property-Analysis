@@ -4,11 +4,12 @@ Step to Setup the PropertyAnalysis Program
 2. Download the latest version of node.js
 	https://nodejs.org/en/
 2. Open a File explorer and navigate to 'Individual Project Property Analysis' Directory.
-3. Open command prompt within the Directory.
+3. Open Command Prompt within the Directory.
 	( Command Prompt can be open by typing 'cmd' in the address bar )
 	( This will open Command Prompt in the location of the Directory )
 4. Type 'npm -v' to verify node.js installation
 5. Type 'npm install -g nodemon' to install nodemon
+6. Close Command Prompt
 
 Steps to Run the PropertyAnalysis Program
 
